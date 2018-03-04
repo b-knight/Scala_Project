@@ -9,16 +9,16 @@
 def bivar(x: List[Double], y: List[Double]):
   List[Double] = {
   def sqr(x: Double) = x*x
-  val sum_y = y.sum
-  val sum_x_sqr = x.map(sqr).sum
-  val sum_x = x.sum
-  val sum_xy = x.zip(y).map { case (x, y) => x * y }.sum
+  val sumy = y.sum
+  val sumxsqr = x.map(sqr).sum
+  val sumx = x.sum
+  val sumxy = x.zip(y).map { case (x, y) => x * y }.sum
   val n = x.length
-  val sqr_sum_of_x = sqr(sum_x)
-  val b = ((sum_y*sum_x_sqr) - (sum_x * sum_xy)) /
-    ((n * sum_x_sqr) - sqr_sum_of_x)
-  val m = ((n*sum_xy) - (sum_x * sum_y)) /
-    ((n * sum_x_sqr) - sqr_sum_of_x)
+  val sqrsumofx = sqr(sumx)
+  val b = ((sumy*sumxsqr) - (sumx*sumxy)) /
+    ((n*sumxsqr) - sqrsumofx)
+  val m = ((n*sumxy) - (sumx*sumy)) /
+    ((n*sumxsqr) - sqrsumofx)
   val output: List[Double] = List(m, b)
   output
 }
