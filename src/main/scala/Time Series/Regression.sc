@@ -76,7 +76,6 @@ def acf(numberOfLags: Int, dataVector: List[Double]) = {
   {var a = lag(i, dataVector, dataVector)
     var valueOne = new ListBuffer[Double]()
     var valueTwo = new ListBuffer[Double]()
-    //    println(a)
     for (k <- a)
     {valueOne += k._1
       valueTwo += k._2
@@ -88,20 +87,13 @@ def acf(numberOfLags: Int, dataVector: List[Double]) = {
   output
 }
 
-val x: List[Double] = List(1.0, 2.0, 1.0, 2.0, 1.0, 2.0, 1.0)
-acf(3, x)
 
-import scala.io.Source
-//import breeze.linalg.DenseVector
+//val x: List[Double] = List(1.0, 2.0, 1.0, 2.0, 1.0, 2.0, 1.0)
+//acf(3, x)
+//------------------------------------------------------------------------------
 
-val filename = "/home/ben/Documents/Scala_Project/src/main/scala/data/rep_height_weights.csv"
-val file = Source.fromFile(filename)
-val lines = file.getLines.toVector
-val splitLines = lines.map { _.split(',') }
-val excerpt = lines.drop(1).grouped(103).map(_.head).toList
 
-//def fromList[T:ClassTag](index:Int, converter:(String => T)):DenseVector[T] =
-//  DenseVector.tabulate(lines.length) { irow => converter(splitLines(irow)(index)) }
+
 
 
 
